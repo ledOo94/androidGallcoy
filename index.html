@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Gallinas vs Coyote</title>
+  <style>
+    body {
+      margin: 0;
+      background: #f8f8f8;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-family: sans-serif;
+    }
+    canvas {
+      background: white;
+      border: 2px solid black;
+      margin-top: 20px;
+    }
+    #controles {
+      display: none;
+      margin-top: 10px;
+    }
+    .grupo {
+      margin-bottom: 10px;
+    }
+    button {
+      font-size: 20px;
+      padding: 10px;
+      margin: 3px;
+    }
+    h3 {
+      margin: 5px 0;
+    }
+  </style>
+</head>
+<body>
+  <h2>🐔 Gallinas vs Coyote 🦊</h2>
+  <canvas id="game-board" width="400" height="400"></canvas>
+
+  <div id="controles">
+    <div class="grupo">
+      <h3>🦊 Coyote</h3>
+      <button onclick="intentaCapturaCoyote(0,-1)">↑</button>
+      <button onclick="intentaCapturaCoyote(-1,0)">←</button>
+      <button onclick="intentaCapturaCoyote(1,0)">→</button>
+      <button onclick="intentaCapturaCoyote(0,1)">↓</button>
+      <br/>
+      <button onclick="intentaCapturaCoyote(-1,-1)">↖</button>
+      <button onclick="intentaCapturaCoyote(1,-1)">↗</button>
+      <button onclick="intentaCapturaCoyote(-1,1)">↙</button>
+      <button onclick="intentaCapturaCoyote(1,1)">↘</button>
+    </div>
+    <div class="grupo">
+      <h3>🐔 Gallina</h3>
+      <button onclick="moverGallina(0,-1)">↑</button>
+      <button onclick="moverGallina(-1,0)">←</button>
+      <button onclick="moverGallina(1,0)">→</button>
+      <button onclick="moverGallina(0,1)">↓</button>
+      <br/>
+      <button onclick="moverGallina(-1,-1)">↖</button>
+      <button onclick="moverGallina(1,-1)">↗</button>
+      <button onclick="moverGallina(-1,1)">↙</button>
+      <button onclick="moverGallina(1,1)">↘</button>
+      <br/>
+      <button onclick="cambiarGallina()">Gallina siguiente 🐥</button>
+    </div>
+  </div>
+
+  <script src="gallinasCoyote.js"></script>
+  <script>
+    function esCelular() {
+      return /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+    }
+    if (esCelular()) {
+      document.getElementById("controles").style.display = "block";
+    }
+  </script>
+</body>
+</html>
